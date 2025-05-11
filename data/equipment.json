@@ -1,0 +1,50 @@
+[
+	{
+		"index": "club",
+		"name": "Club",
+		"description": "A basic club, useful for bashing enemies.",
+
+		"category": "weapon",
+		"rarity": "common",
+		"weight": 0.9,
+		"price": 10,
+
+		"weaponCategory": "simple",
+		"weaponFamily": "club",
+
+		"damage1H": {
+			"dice": "1d4",
+			"type": "bludgeoning"
+		},
+
+		"properties": ["one-handed", "melee", "light", "dippable"],
+		"actions": ["concussive-smash"]
+	},
+	{
+		"index": "lightning-jabber",
+		"name": "Lightning Jabber",
+		"description": "A spear that crackles with electricity, dealing extra damage on a hit.",
+
+		"category": "weapon",
+		"rarity": "uncommon",
+		"weight": 1.35,
+		"price": 65,
+
+		"weaponCategory": "simple",
+		"weaponFamily": "spear",
+
+		"damage1H": {
+			"dice": "1d6",
+			"type": "piercing"
+		},
+		"damage2H": {
+			"dice": "1d8",
+			"type": "piercing"
+		},
+
+		"properties": ["versatile", "melee", "thrown", "dippable"],
+		"actions": ["rush-attack"],
+
+		"special": ["shocking-sting", "throwing:lightning-damage"]
+	}
+]
