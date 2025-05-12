@@ -31,5 +31,18 @@ export interface Weapon extends WeaponType {
 	enchantment?: number; // eg. +1, +2, +3...
 }
 
+export interface Armour extends Equipment {
+	armourCategory: string; // "light, medium, heavy"
+	stealthAdvantage: boolean; // disadvantage on stealth check
+	armourClass: number; // base AC
+	special: string; // special rules
+	enchantment?: number; // eg. +1, +2, +3...
+}
+
+export interface HeadWear extends Equipment {
+	armourCategory?: string; // "light, medium, heavy", required for armour proficiencies
+	effects?: string[]; // effects ids. eg. "darkvision, advantage on wisdom saving throws"
+}
+
 import { default as EquipmentData } from "../data/equipment.json";
 export const EquipmentList: Equipment[] = EquipmentData;

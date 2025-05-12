@@ -46,5 +46,49 @@
 		"actions": ["rush-attack"],
 
 		"special": ["shocking-sting", "throwing:lightning-damage"]
-	}
+	},
+	{
+		"index": "leather-armor",
+		"name": "Leather Armor",
+		"description": "Leather armor that provides basic protection.",
+
+		"category": "armor",
+		"rarity": "common",
+		"weight": 4.5,
+		"price": 40,
+
+		"armorCategory": "light",
+    "stealthDisadvantage": false,
+    "armorClass": 11,
+	},
+	{
+		"index": "breastplate-1",
+		"name": "breastplate +1",
+		"description": "This breastplate is crafted in the specialty style of a mysterious armourer in Amn known only as 'The Tailor'.",
+		"category": "armor",
+		"rarity": "uncommon",
+		"weight": 9,
+		"price": 200,
+
+		"armorCategory": "medium",
+    "stealthDisadvantage": false,
+    "armorClass": 15,
+    "special": ["superior-plate"]
+    "enchantment": 1,
+	},
+  {
+    "index": "chain-mail-2",
+    "name": "Chain Mail +2",
+		"description": "Made from thick, strong chains loosely-fitted, this armour hangs more heavily than some but protects its wearer with an impenetrable weave of metal.",
+		"category": "armor",
+		"rarity": "rare",
+		"weight": 18,
+		"price": 770,
+
+		"armorCategory": "heavy",
+    "stealthDisadvantage": true,
+    "armorClass": 18,
+    "special": ["superior-plate"]
+    "enchantment": 2,
+  }
 ]

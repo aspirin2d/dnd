@@ -1,8 +1,5 @@
 import type { Character, Skill } from "./character";
-import type { Action } from "./action";
-
 import { AbilityScoreModifier, ProficiencyBonus } from "./character";
-import { EquipmentList, type Weapon } from "./equipment";
 
 export type RollType = "normal" | "advantage" | "disadvantage";
 
@@ -17,6 +14,12 @@ export interface RollResult {
 	pick: number;
 	total: number;
 	success: boolean;
+	modifiers: Modifier[];
+}
+
+export interface DamageRollResult {
+	roll: number;
+	total: number;
 	modifiers: Modifier[];
 }
 
@@ -109,6 +112,42 @@ export function AbilityCheck(
 
 	let success = false;
 	if (isCriticalSuccess || (!isCriticalFailure && finalRoll >= dc)) {
+		success = true;
+	}
+
+	return {
+		rolls: rollType === "normal" ? [roll1] : [roll1, roll2],
+		pick: finalRoll,
+		total,
+		modifiers,
+		success,
+	};
+}
+
+export function AttackRoll(
+	modifiers: Modifier[],
+	ac: number,
+	rollType: RollType = "normal",
+): RollResult {
+	let roll1 = RollDice("1d20");
+	let roll2 = RollDice("1d20");
+
+	let finalRoll: number;
+	if (rollType === "advantage") {
+		finalRoll = Math.max(roll1, roll2);
+	} else if (rollType === "disadvantage") {
+		finalRoll = Math.min(roll1, roll2);
+	} else {
+		finalRoll = roll1;
+	}
+
+	const isCriticalSuccess = finalRoll === 20;
+	const isCriticalFailure = finalRoll === 1;
+
+	let total = modifiers.reduce((acc, mod) => acc + mod.value, finalRoll);
+
+	let success = false;
+	if (isCriticalSuccess || (!isCriticalFailure && finalRoll >= ac)) {
 		success = true;
 	}
 
