@@ -11,7 +11,7 @@ export interface Equipment {
 
 export interface Damage {
 	dice: string; // e.g. "1d8"
-	type: string; // e.g. "slashing, bludgeoning, piercing"
+	type: string; // damage type, e.g. "slashing, bludgeoning, piercing, fire..."
 }
 
 export interface WeaponType extends Equipment {
@@ -26,7 +26,7 @@ export interface WeaponType extends Equipment {
 }
 
 export interface Weapon extends WeaponType {
-	extraDamage?: Damage[]; // extra damage. e.g. "1d6 fire"
+	extraDamages?: Damage[]; // extra damage. e.g. "1d6 fire"
 	specials?: string[]; // weapon special ids. e.g., "flame tongue, frost brand"
 	enchantment?: number; // eg. +1, +2, +3...
 }
@@ -41,7 +41,7 @@ export interface Armour extends Equipment {
 
 export interface HeadWear extends Equipment {
 	armourCategory?: string; // "light, medium, heavy", required for armour proficiencies
-	effects?: string[]; // effects ids. eg. "darkvision, advantage on wisdom saving throws"
+	specials?: string[]; // effects ids. eg. "darkvision, advantage on wisdom saving throws"
 }
 
 import { default as EquipmentData } from "../data/equipment.json";

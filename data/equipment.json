@@ -59,7 +59,7 @@
 
 		"armorCategory": "light",
     "stealthDisadvantage": false,
-    "armorClass": 11,
+    "armorClass": 11
 	},
 	{
 		"index": "breastplate-1",
@@ -73,8 +73,8 @@
 		"armorCategory": "medium",
     "stealthDisadvantage": false,
     "armorClass": 15,
-    "special": ["superior-plate"]
-    "enchantment": 1,
+    "special": ["superior-plate"],
+    "enchantment": 1
 	},
   {
     "index": "chain-mail-2",
@@ -88,7 +88,7 @@
 		"armorCategory": "heavy",
     "stealthDisadvantage": true,
     "armorClass": 18,
-    "special": ["superior-plate"]
-    "enchantment": 2,
+    "special": ["superior-plate"],
+    "enchantment": 2
   }
 ]
