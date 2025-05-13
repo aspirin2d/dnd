@@ -1,7 +1,8 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { abilityCheck, type Skill } from "./skill";
+import { type Skill } from "./skill";
 import { tav } from "./character";
 import { mockRandomSequence } from "./dice.test";
+import { abilityCheck } from "./ability";
 
 afterEach(() => {
 	vi.restoreAllMocks(); // Reset Math.random after each test

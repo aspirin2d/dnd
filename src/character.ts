@@ -1,6 +1,7 @@
 export interface Character {
 	id: string;
 	name: string;
+	description?: string;
 
 	class: string; // class id
 	subclass?: string; // subclass id
@@ -44,6 +45,8 @@ export interface Character {
 	slotAmulet?: string; // equipped amulet id
 
 	// spell casting
+	spellCasting?: string; // ""
+	spellCastingAbility?: string;
 	slotCantrip?: string; // the cantrip id
 	slotSpells?: string[]; // equiped spell ids
 }
@@ -62,28 +65,10 @@ export function ProficiencyBonus(level: number): number {
 	return Math.ceil(level / 4) + 1;
 }
 
-// return an empty character instance
+import { default as CharacterData } from "../data/character.json";
+export const CharacterList = CharacterData as Character[];
+
+// return a mock character instance
 export function tav(): Character {
-  return {
-    id: "tav",
-    name: "Tav",
-
-    class: "fighter",
-    specy: "human",
-    background: "soldier",
-    level: 1,
-
-    strength: 10,
-    dexterity: 10,
-    constitution: 10,
-    intelligence: 10,
-    wisdom: 10,
-    charisma: 10,
-
-    proWeapons: [],
-    proArmour: [],
-    proSkills: [],
-    expSkills: [],
-    savingThrows: [],
-  }
+	return CharacterList.find((ch) => ch.id === "tav")!;
 }
