@@ -51,14 +51,14 @@ export interface Character {
 	slotSpells?: string[]; // equiped spell ids
 }
 
-export function AbilityScoreModifier(score: number): number {
+export function abilityScoreModifier(score: number): number {
 	if (score < 1) {
 		throw new Error("ability score cannot be less than 1");
 	}
 	return Math.floor((score - 10) / 2);
 }
 
-export function ProficiencyBonus(level: number): number {
+export function proficiencyBonus(level: number): number {
 	if (level < 1) {
 		throw new Error("level cannot be less than 1");
 	}

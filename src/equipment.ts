@@ -21,7 +21,7 @@ export interface WeaponType extends Equipment {
 	damage1H?: Damage; // damage for one handed
 	damage2H?: Damage; // damage for two handed
 
-	properties: string[]; // weapon property ids. eg. "finesse,light,thrown"
+	properties: string[]; // weapon property ids. eg. "melee, finesse, light, thrown..."
 	actions: string[]; // action ids. eg. "rush_attack,pierce_attack"
 }
 

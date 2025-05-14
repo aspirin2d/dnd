@@ -1,6 +1,6 @@
 import {
-	AbilityScoreModifier,
-	ProficiencyBonus,
+	abilityScoreModifier,
+	proficiencyBonus,
 	type Character,
 } from "./character";
 
@@ -30,16 +30,11 @@ export interface AbilityCheckOptions {
 
 export function abilityCheck(options: AbilityCheckOptions): Roll20Result {
 	const { character, skill, difficultyClass, rollType = "normal" } = options;
-	const abilityScore = character[skill.ability];
-	const abilityModifier = AbilityScoreModifier(abilityScore);
-
-	const proficient =
-		character.proSkills.find((s) => s === skill.index) !== undefined;
-	const expertise =
-		character.expSkills.find((s) => s === skill.index) !== undefined;
-	const proficiencyBonus = ProficiencyBonus(character.level);
-
 	const modifiers: Modifier[] = [];
+
+  // ability modifier
+	const abilityScore = character[skill.ability];
+	const abilityModifier = abilityScoreModifier(abilityScore);
 	if (abilityModifier !== 0) {
 		modifiers.push({
 			source: "ability modifier",
@@ -48,17 +43,24 @@ export function abilityCheck(options: AbilityCheckOptions): Roll20Result {
 		});
 	}
 
+  // proficient/expertise modifier
+	const proficient =
+		character.proSkills.find((s) => s === skill.index) !== undefined;
+	const expertise =
+		character.expSkills.find((s) => s === skill.index) !== undefined;
+	const pb = proficiencyBonus(character.level);
+
 	if (expertise) {
 		modifiers.push({
 			source: "expertise bonus",
 			index: skill.index,
-			value: proficiencyBonus * 2,
+			value: pb * 2,
 		});
 	} else if (proficient) {
 		modifiers.push({
 			source: "proficiency bonus",
 			index: skill.index,
-			value: proficiencyBonus,
+			value: pb,
 		});
 	}
 
