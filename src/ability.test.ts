@@ -1,15 +1,15 @@
-import { describe, it, expect, vi, afterEach } from "vitest";
-import { type Skill } from "./skill";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { abilityCheck } from "./ability";
 import { tav } from "./character";
 import { mockRandomSequence } from "./dice.test";
-import { abilityCheck } from "./ability";
+import { type Skill } from "./skill";
 
 afterEach(() => {
 	vi.restoreAllMocks(); // Reset Math.random after each test
 });
 
 const mockSkill: Skill = {
-	index: "test",
+  index: "test",
 	name: "Test",
 	description: "Test",
 	ability: "strength",

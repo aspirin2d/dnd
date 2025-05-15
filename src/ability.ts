@@ -37,7 +37,7 @@ export function abilityCheck(options: AbilityCheckOptions): Roll20Result {
 	const abilityModifier = abilityScoreModifier(abilityScore);
 	if (abilityModifier !== 0) {
 		modifiers.push({
-			source: "ability modifier",
+			source: "ability score modifier",
 			index: skill.ability,
 			value: abilityModifier,
 		});
