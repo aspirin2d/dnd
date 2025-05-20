@@ -1,8 +1,8 @@
-import type { Ability } from "./ability";
+import type { AbilityScoreType } from "./ability";
 
 export interface Skill {
-	index: string;
-	name: string;
-	description: string;
-	ability: Ability;
+  index: string;
+  name: string;
+  description: string;
+  ability: AbilityScoreType;
 }
