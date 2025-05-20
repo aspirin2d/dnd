@@ -1,0 +1,21 @@
+[
+  {
+    "index": "fire-bolt",
+    "name": "Fire Bolt",
+    "description": "Hurl a mote of fire.",
+    "level": 0,
+    "school": "evocation",
+    "castingTime": "action",
+    "range": "ranged",
+    "concentration": false,
+    "ritual": false,
+    "attackRoll": true,
+    "damages": [
+      {
+        "type": "fire",
+        "dice": "1d10"
+      }
+    ],
+    "conditions": []
+  }
+]
