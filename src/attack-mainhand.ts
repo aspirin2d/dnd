@@ -3,87 +3,84 @@ import { armourClass } from "./armour";
 import { type AttackOptions, type AttackResult, damageRoll, type DamageRollResult } from "./attack";
 import { type Modifier, roll20 } from "./dice";
 import { EquipmentList } from "./equipment";
-import { type Damage, type Weapon, weaponProficiency } from "./weapon";
+import { type Weapon, weaponProficiency } from "./weapon";
 
-// main hand melee attack
-// @see: https://bg3.wiki/wiki/Main_Hand_Attack
-export function mainHandMeleeAttack(options: AttackOptions): AttackResult {
+/**
+ * Resolves a main hand melee attack from attacker to defender.
+ * - Uses slotMeleeLeft as the main hand.
+ * - If weapon has versatile and offhand is unarmed, uses two-handed damage.
+ * - Applies ability and proficiency modifiers appropriately.
+ * - Rolls for hit, then for damage (with ability and enchantment bonuses).
+ * - Sums extra damage sources.
+ */
+export function mainHandAttack(options: AttackOptions): AttackResult {
   const { attacker, defender, rollType } = options;
-  if (!attacker.slotMeleeLeft) throw new Error("Main hand weapon not found: " + attacker.slotMeleeLeft)
+  if (!attacker.slotMeleeLeft) throw new Error("Main hand weapon not found: " + attacker.slotMeleeLeft);
 
-  const weapon = EquipmentList.find(e => e.index === attacker.slotMeleeLeft) as Weapon
-  if (!weapon) throw new Error("Weapon not found at main hand: " + attacker.slotRangedLeft)
+  const weapon = EquipmentList.find(e => e.index === attacker.slotMeleeLeft) as Weapon;
+  if (!weapon) throw new Error("Weapon not found at main hand: " + attacker.slotMeleeLeft);
+  if (weapon.category !== "weapon") throw new Error("Main hand slot is not a weapon: " + attacker.slotMeleeLeft);
 
-  let modifiers: Modifier[] = []
-
-  // main hand attack roll
-  // @see: https://bg3.wiki/wiki/Attacks#Attack_rolls
-  let weaponAbility: Ability = "strength"
-
-  if (weapon.properties.includes("finesse")) {
-    if (attacker.dexterity > attacker.strength) {
-      weaponAbility = "dexterity"
-    }
+  // --- Build attack roll modifiers ---
+  let weaponAbility: Ability = "strength";
+  if (weapon.properties.includes("finesse") && attacker.dexterity > attacker.strength) {
+    weaponAbility = "dexterity";
   }
+  const attackAbilityMod = abilityModifier(attacker, weaponAbility);
+  const proficiencyMod = weaponProficiency(attacker, weapon);
 
-  // ability modifier
-  const am = abilityModifier(attacker, weaponAbility)
-  if (am) {
-    modifiers.push(am)
-  }
+  // Collect modifiers for attack roll
+  const attackModifiers: Modifier[] = [];
+  if (attackAbilityMod) attackModifiers.push(attackAbilityMod);
+  if (proficiencyMod) attackModifiers.push(proficiencyMod);
 
-  // weapon proficiency bonus
-  const proficiency = weaponProficiency(attacker, weapon)
-  if (proficiency) {
-    modifiers.push(proficiency)
-  }
+  // Defender's AC
+  const ac = armourClass(defender);
+  const attackRoll = roll20({ modifiers: attackModifiers, target: ac.total, type: rollType });
 
-  // get defender's AC
-  const ac = armourClass(defender)
-  const attackRoll = roll20({ modifiers, target: ac.total, type: rollType })
+  const result: AttackResult = { attackRoll };
 
-  const result: AttackResult = {
-    attackRoll
-  }
-
-  // if success, make the damage roll
-  // @see: https://bg3.wiki/wiki/Damage
+  // --- Damage Roll if attack hits ---
   if (attackRoll.success) {
-    let damage: Damage | undefined
-    const versatile = weapon.properties.includes("versatile")
-    if (versatile && !attacker.slotMeleeRight) {
-      // if versatile and offhand is unarmed, use 2H damage
-      damage = weapon.damage2H
-    } else {
-      damage = weapon.damage1H
-    }
-    if (!damage) throw new Error("damage property not found: " + weapon.index)
+    // Decide between 1H/2H damage (versatile)
+    const isVersatile = weapon.properties.includes("versatile");
+    const useTwoHanded = isVersatile && !attacker.slotMeleeRight;
+    const mainDamage = useTwoHanded ? weapon.damage2H : weapon.damage1H;
+    if (!mainDamage) throw new Error("Damage property not found: " + weapon.index);
 
-    // add ability score modifier
-    const dmgModifiers: Modifier[] = am ? [am] : []
+    // Build damage roll modifiers (usually same as ability mod; enchantment if applicable)
+    const dmgModifiers: Modifier[] = [];
 
-    // add enchantment bonus
+    if (attackAbilityMod) dmgModifiers.push(attackAbilityMod);
+
     if (weapon.enchantment) {
       dmgModifiers.push({
         source: "weapon_enchantment",
         value: weapon.enchantment,
-      })
+      });
     }
+    // TODO: Add more damage bonuses here if needed
 
-    // TODO: add other damage bonus
+    // Crit check: double dice if critical hit
+    const isCrit = !!attackRoll.critical && attackRoll.roll === 20;
 
-    const base = damageRoll(defender, damage);
-    const extras = weapon.extraDamages?.map(d => damageRoll(defender, d)) ?? undefined
-    const total = base.final + (extras ? extras.reduce((acc, d) => acc + d.final, 0) : 0) + modifiers.reduce((acc, m) => acc + m.value, 0)
+    // Base damage roll
+    const base = damageRoll(defender, mainDamage, isCrit);
+
+    // Extra damages (like fire, poison, etc.) -- also doubled on crit
+    const extras = weapon.extraDamages?.map(d => damageRoll(defender, d, isCrit)) ?? undefined;
+
+    // Total: sum base, extras, modifiers (if any)
+    let total = base.final + (extras ? extras.reduce((acc, d) => acc + d.final, 0) : 0) + dmgModifiers.reduce((acc, d) => acc + d.value, 0);
 
     const damageRollRes: DamageRollResult = {
-      base: base,
-      extras: extras,
-      total: total,
-    }
+      base,
+      extras,
+      total,
+    };
 
-    result.damageRoll = damageRollRes
+    result.damageRoll = damageRollRes;
   }
 
-  return result
+  return result;
 }

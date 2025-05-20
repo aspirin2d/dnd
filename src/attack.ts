@@ -31,8 +31,8 @@ export interface AttackResult {
   damageRoll?: DamageRollResult; // if not present, the attack roll failed
 }
 
-export function damageRoll(defender: Character, damage: Damage): DamageResult {
-  const rolled = roll(damage.dice)
+export function damageRoll(defender: Character, damage: Damage, critical: boolean = false): DamageResult {
+  const rolled = roll(damage.dice, critical)
   let final = rolled
 
   const hasImmunity = defender.immunities?.includes(damage.type)
@@ -55,10 +55,10 @@ export function damageRoll(defender: Character, damage: Damage): DamageResult {
   }
 
   if (hasResistance && !hasVulnerability) {
-    final = Math.floor(rolled / 2);
+    res.final = Math.floor(rolled / 2);
     res.resistance = "resistance"
   } else if (!hasResistance && hasVulnerability) {
-    final = rolled * 2;
+    res.final = rolled * 2;
     res.resistance = "vulnerability"
   }
 
