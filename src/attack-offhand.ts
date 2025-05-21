@@ -54,6 +54,7 @@ export function offHandAttack(options: AttackOptions): AttackResult {
 
     const dmgModifiers: Modifier[] = [];
 
+    // @see: https://www.reddit.com/r/BaldursGate3/comments/17s4hcu/little_question_about_dual_wielding_in_bg3/
     // By default, **do NOT add ability modifier to off-hand damage**
     // If the weapon or a feature specifically allows, you can add it here.
     // e.g., if (weapon.properties.includes("offhand_ability_bonus")) { ... }
