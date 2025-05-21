@@ -1,8 +1,6 @@
 import type { Ability } from "./ability";
+import type { DataItem } from "./utils";
 
-export interface Skill {
-  index: string;
-  name: string;
-  description: string;
-  ability: Ability;
+export interface Skill extends DataItem {
+  ability: Ability; // ability id
 }
