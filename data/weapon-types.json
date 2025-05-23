@@ -1,0 +1,371 @@
+[
+  {
+    "index": "battleaxe",
+    "name": "Battleaxe",
+    "range": "melee",
+    "properties": ["versatile"],
+    "damage": {
+      "oneHanded": { "notation": "1d8", "damageType": "slashing" },
+      "twoHanded": { "notation": "1d10", "damageType": "slashing" }
+    },
+    "basicActions": ["cleave", "lacerate", "maiming-strike"],
+    "description": "A heavy martial weapon that can be wielded with one or two hands to deliver powerful slashing attacks."
+  },
+  {
+    "index": "club",
+    "name": "Club",
+    "range": "melee",
+    "properties": ["light"],
+    "damage": {
+      "oneHanded": { "notation": "1d4", "damageType": "bludgeoning" }
+    },
+    "basicActions": ["concussive-smash"],
+    "description": "A simple, blunt weapon made of wood or metal, used for bashing foes in close combat."
+  },
+  {
+    "index": "dagger",
+    "name": "Dagger",
+    "range": "melee",
+    "properties": ["finesse", "light", "thrown"],
+    "damage": {
+      "oneHanded": { "notation": "1d4", "damageType": "piercing" }
+    },
+    "basicActions": ["piercing-strike"],
+    "description": "A small, light, and easily concealed piercing weapon favored for quick strikes and throwing."
+  },
+  {
+    "index": "dart",
+    "name": "Dart",
+    "range": "ranged",
+    "properties": ["finesse", "thrown"],
+    "damage": {
+      "oneHanded": { "notation": "1d4", "damageType": "piercing" }
+    },
+    "basicActions": [],
+    "description": "A small, throwable piercing weapon ideal for ranged attacks."
+  },
+  {
+    "index": "flail",
+    "name": "Flail",
+    "range": "melee",
+    "properties": [],
+    "damage": {
+      "oneHanded": { "notation": "1d8", "damageType": "bludgeoning" }
+    },
+    "basicActions": ["concussive-smash", "tenacity", "weakening-strike"],
+    "description": "A swinging weapon with a spiked ball on a chain, dealing devastating bludgeoning damage."
+  },
+  {
+    "index": "glaive",
+    "name": "Glaive",
+    "range": "melee",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "1d10", "damageType": "slashing" }
+    },
+    "basicActions": ["brace-melee", "lacerate", "rush-attack"],
+    "description": "A long polearm with a single-edged blade, used to slash enemies from a distance."
+  },
+  {
+    "index": "greataxe",
+    "name": "Greataxe",
+    "range": "melee",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "1d12", "damageType": "slashing" }
+    },
+    "basicActions": ["cleave", "lacerate", "prepare"],
+    "description": "A massive two-handed axe that delivers powerful slashing blows."
+  },
+  {
+    "index": "greatclub",
+    "name": "Greatclub",
+    "range": "melee",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "1d8", "damageType": "bludgeoning" }
+    },
+    "basicActions": ["concussive-smash", "tenacity"],
+    "description": "A large, two-handed wooden club used to crush armor and bone."
+  },
+  {
+    "index": "greatsword",
+    "name": "Greatsword",
+    "range": "melee",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "2d6", "damageType": "slashing" }
+    },
+    "basicActions": ["cleave", "lacerate", "pommel-strike"],
+    "description": "A massive two-handed sword capable of wide, sweeping slashing strikes."
+  },
+  {
+    "index": "halberd",
+    "name": "Halberd",
+    "range": "melee",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "1d10", "damageType": "slashing" }
+    },
+    "basicActions": ["cleave", "lacerate", "rush-attack"],
+    "description": "A two-handed polearm combining an axe blade and spear point for versatile slashing and thrusting."
+  },
+  {
+    "index": "hand-crossbow",
+    "name": "Hand Crossbow",
+    "range": "ranged",
+    "properties": ["light"],
+    "damage": {
+      "oneHanded": { "notation": "1d6", "damageType": "piercing" }
+    },
+    "basicActions": ["mobile-shot", "piercing-shot"],
+    "description": "A compact, one-handed ranged weapon that fires bolts rapidly."
+  },
+  {
+    "index": "handaxe",
+    "name": "Handaxe",
+    "range": "melee",
+    "properties": ["light", "thrown"],
+    "damage": {
+      "oneHanded": { "notation": "1d6", "damageType": "slashing" }
+    },
+    "basicActions": ["lacerate"],
+    "description": "A small axe usable in one hand or thrown to deliver slashing damage."
+  },
+  {
+    "index": "heavy-crossbow",
+    "name": "Heavy Crossbow",
+    "range": "ranged",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "1d10", "damageType": "piercing" }
+    },
+    "basicActions": ["brace-ranged", "piercing-shot"],
+    "description": "A large, powerful ranged weapon that requires two hands to fire bolts with great force."
+  },
+  {
+    "index": "javelin",
+    "name": "Javelin",
+    "range": "melee",
+    "properties": ["thrown"],
+    "damage": {
+      "oneHanded": { "notation": "1d6", "damageType": "piercing" }
+    },
+    "basicActions": ["piercing-strike"],
+    "description": "A light spear designed for both melee thrusts and throwing at distant targets."
+  },
+  {
+    "index": "light-crossbow",
+    "name": "Light Crossbow",
+    "range": "ranged",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "1d8", "damageType": "piercing" }
+    },
+    "basicActions": ["piercing-shot"],
+    "description": "A smaller crossbow that offers moderate piercing damage and requires two hands."
+  },
+  {
+    "index": "light-hammer",
+    "name": "Light Hammer",
+    "range": "melee",
+    "properties": ["light", "thrown"],
+    "damage": {
+      "oneHanded": { "notation": "1d4", "damageType": "bludgeoning" }
+    },
+    "basicActions": ["concussive-smash"],
+    "description": "A small, easily thrown blunt weapon used to bash foes."
+  },
+  {
+    "index": "longbow",
+    "name": "Longbow",
+    "range": "ranged",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "1d8", "damageType": "piercing" }
+    },
+    "basicActions": ["brace-ranged", "hamstring-shot"],
+    "description": "A tall bow requiring strength to draw, capable of striking targets at great range."
+  },
+  {
+    "index": "longsword",
+    "name": "Longsword",
+    "range": "melee",
+    "properties": ["versatile"],
+    "damage": {
+      "oneHanded": { "notation": "1d8", "damageType": "slashing" },
+      "twoHanded": { "notation": "1d10", "damageType": "slashing" }
+    },
+    "basicActions": ["lacerate", "pommel-strike", "rush-attack"],
+    "description": "A versatile sword usable one-handed or two-handed for balanced slashing strikes."
+  },
+  {
+    "index": "mace",
+    "name": "Mace",
+    "range": "melee",
+    "properties": [],
+    "damage": {
+      "oneHanded": { "notation": "1d6", "damageType": "bludgeoning" }
+    },
+    "basicActions": ["concussive-smash"],
+    "description": "A blunt weapon with a heavy head, crushing armor and bone."
+  },
+  {
+    "index": "maul",
+    "name": "Maul",
+    "range": "melee",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "2d6", "damageType": "bludgeoning" }
+    },
+    "basicActions": ["backbreaker", "concussive-smash", "tenacity"],
+    "description": "A heavy two-handed hammer that delivers crushing blows to foes."
+  },
+  {
+    "index": "morningstar",
+    "name": "Morningstar",
+    "range": "melee",
+    "properties": [],
+    "damage": {
+      "oneHanded": { "notation": "1d8", "damageType": "piercing" }
+    },
+    "basicActions": ["concussive-smash", "heartstopper", "tenacity"],
+    "description": "A spiked mace combining bludgeoning and piercing capabilities."
+  },
+  {
+    "index": "pike",
+    "name": "Pike",
+    "range": "melee",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "1d10", "damageType": "piercing" }
+    },
+    "basicActions": ["brace-melee", "piercing-strike", "rush-attack"],
+    "description": "A long thrusting spear used to keep enemies at bay."
+  },
+  {
+    "index": "quarterstaff",
+    "name": "Quarterstaff",
+    "range": "melee",
+    "properties": ["versatile"],
+    "damage": {
+      "oneHanded": { "notation": "1d6", "damageType": "bludgeoning" },
+      "twoHanded": { "notation": "1d8", "damageType": "bludgeoning" }
+    },
+    "basicActions": ["topple"],
+    "description": "A sturdy wooden staff wielded in one or two hands for blunt attacks."
+  },
+  {
+    "index": "rapier",
+    "name": "Rapier",
+    "range": "melee",
+    "properties": ["finesse"],
+    "damage": {
+      "oneHanded": { "notation": "1d8", "damageType": "piercing" }
+    },
+    "basicActions": ["flourish", "piercing-strike", "weakening-strike"],
+    "description": "A slender, finesse-oriented sword designed for precise piercing strikes."
+  },
+  {
+    "index": "scimitar",
+    "name": "Scimitar",
+    "range": "melee",
+    "properties": ["finesse", "light"],
+    "damage": {
+      "oneHanded": { "notation": "1d6", "damageType": "slashing" }
+    },
+    "basicActions": ["flourish", "lacerate"],
+    "description": "A curved blade that combines finesse with slashing power."
+  },
+  {
+    "index": "shortbow",
+    "name": "Shortbow",
+    "range": "ranged",
+    "properties": ["two-handed"],
+    "damage": {
+      "twoHanded": { "notation": "1d6", "damageType": "piercing" }
+    },
+    "basicActions": ["hamstring-shot"],
+    "description": "A compact bow suitable for medium-range attacks."
+  },
+  {
+    "index": "shortsword",
+    "name": "Shortsword",
+    "range": "melee",
+    "properties": ["finesse", "light"],
+    "damage": {
+      "oneHanded": { "notation": "1d6", "damageType": "piercing" }
+    },
+    "basicActions": ["flourish", "piercing-strike"],
+    "description": "A light, versatile sword optimized for quick slashing and thrusting."
+  },
+  {
+    "index": "sickle",
+    "name": "Sickle",
+    "range": "melee",
+    "properties": ["light"],
+    "damage": {
+      "oneHanded": { "notation": "1d4", "damageType": "slashing" }
+    },
+    "basicActions": ["lacerate"],
+    "description": "A curved agricultural tool repurposed for slashing attacks."
+  },
+  {
+    "index": "sling",
+    "name": "Sling",
+    "range": "ranged",
+    "properties": [],
+    "damage": {
+      "oneHanded": { "notation": "1d4", "damageType": "bludgeoning" }
+    },
+    "basicActions": [],
+    "description": "A simple ranged weapon that hurls stones or bullets using a leather strap."
+  },
+  {
+    "index": "spear",
+    "name": "Spear",
+    "range": "melee",
+    "properties": ["versatile", "thrown"],
+    "damage": {
+      "oneHanded": { "notation": "1d6", "damageType": "piercing" },
+      "twoHanded": { "notation": "1d8", "damageType": "piercing" }
+    },
+    "basicActions": ["rush-attack"],
+    "description": "A long pole weapon used for thrusting in melee or throwing at range."
+  },
+  {
+    "index": "trident",
+    "name": "Trident",
+    "range": "melee",
+    "properties": ["versatile", "thrown"],
+    "damage": {
+      "oneHanded": { "notation": "1d6", "damageType": "piercing" },
+      "twoHanded": { "notation": "1d8", "damageType": "piercing" }
+    },
+    "basicActions": ["disarming-strike", "piercing-strike", "rush-attack"],
+    "description": "A three-pronged spear that excels at both melee thrusts and ranged throws."
+  },
+  {
+    "index": "war-pick",
+    "name": "War Pick",
+    "range": "melee",
+    "properties": [],
+    "damage": {
+      "oneHanded": { "notation": "1d8", "damageType": "piercing" }
+    },
+    "basicActions": ["maiming-strike", "piercing-strike", "weakening-strike"],
+    "description": "A pointed weapon resembling a pickaxe, designed to pierce armor."
+  },
+  {
+    "index": "warhammer",
+    "name": "Warhammer",
+    "range": "melee",
+    "properties": ["versatile"],
+    "damage": {
+      "oneHanded": { "notation": "1d8", "damageType": "bludgeoning" },
+      "twoHanded": { "notation": "1d10", "damageType": "bludgeoning" }
+    },
+    "basicActions": ["backbreaker", "concussive-smash", "weakening-strike"],
+    "description": "A versatile hammer used one- or two-handed to crush and stun opponents."
+  }
+]
