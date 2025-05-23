@@ -1,33 +1,37 @@
-import type { Ability } from "./ability";
-import type { ArmourCategory, WeaponCategory, WeaponType } from "./equipment";
-import type { Skill } from "./skill";
-import type { Spell } from "./spell";
-import type { DataItem, ChooseFrom } from "./utils";
+import { z } from "zod/v4";
 
-export interface Class extends DataItem {
-  hitPoints: {
-    initial: number;
-    perLevel: number;
-  },
+import { AbilityTransformer } from "./ability";
+import { SkillTransformer } from "./skill";
+import { ChooseFrom, DataItem } from "./util";
 
-  proficiencies: {
-    skill: ChooseFrom<Skill>;
-    weapon: (WeaponType | WeaponCategory)[];
-    armour: (ArmourCategory | "shield")[];
-    savingThrow: [Ability, Ability];
-    // TODO: tool proficiencies
-  },
+export const ClassSchema = DataItem.extend({
+  hitPoints: z.object({
+    initial: z.number(),
+    perLevel: z.number(),
+  }),
 
-  expertise?: ChooseFrom<Skill>;
+  proficiencies: z.object({
+    // bard can choose 3 skills, and rogue can choose 4
+    skills: ChooseFrom(SkillTransformer, z.int().min(2).max(4)),
+    weapons: z.array(z.string()),
+    armour: z.array(z.string()),
+    // every class has 2 saving throw proficiencies
+    savingThrows: z.tuple([AbilityTransformer, AbilityTransformer]),
+  }),
+})
 
-  spellCasting?: {
-    ability: Ability;
-    Known: Spell[];
-    prepared: Spell[];
+export type Class = z.infer<typeof ClassSchema>;
+
+// load the class data from the JSON file
+import { default as ClassesData } from "../data/classes.json";
+const ClassList: Class[] = z.array(ClassSchema).parse(ClassesData);
+
+export const ClassIndex = z.enum(["bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard", "unkown"])
+
+export const ClassTransformer = ClassIndex.transform((index) => {
+  const classInstance: Class | undefined = ClassList.find((c) => c.index === index);
+  if (!classInstance) {
+    throw new Error(`Class ${index} not found`);
   }
-
-  // TODO: starting equipment
-}
-
-export interface Subclass extends Class {
-}
+  return classInstance
+})
