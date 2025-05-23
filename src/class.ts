@@ -1,8 +1,21 @@
 import { z } from "zod/v4";
 
+import {
+  WeaponCategoryTransformer,
+  WeaponTypeTransformer,
+} from "./weapon-type";
+
 import { AbilityTransformer } from "./ability";
 import { SkillTransformer } from "./skill";
-import { chooseFrom, createTransformer, DataItem } from "./util";
+import {
+  chooseFrom,
+  createTransformer,
+  DataItem,
+  uniqueIndexArray,
+} from "./util";
+
+// load the class data from the JSON file
+import { default as ClassesData } from "../data/classes.json";
 
 const weaponProficiencyTransformer = z.string().transform((index) => {
   if (index === "simple-weapons" || index === "martial-weapons") {
@@ -30,12 +43,8 @@ export const ClassSchema = DataItem.extend({
 
 export type Class = z.infer<typeof ClassSchema>;
 
-// load the class data from the JSON file
-import { default as ClassesData } from "../data/classes.json";
-import {
-  WeaponCategoryTransformer,
-  WeaponTypeTransformer,
-} from "./weapon-type";
-const ClassList: Class[] = z.array(ClassSchema).parse(ClassesData);
+const ClassList: Class[] = uniqueIndexArray(ClassSchema, "Class").parse(
+  ClassesData,
+);
 
 export const ClassTransformer = createTransformer(ClassList, "Class");

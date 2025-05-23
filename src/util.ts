@@ -30,6 +30,31 @@ export const DiceNotation = z
     message: "Invalid dice notation. Use format XdY or XdY+Z (e.g. 1d6+2)",
   });
 
+export function uniqueIndexArray<T extends { index: string }>(
+  itemSchema: ZodType<T>,
+  name: string,
+) {
+  return z.array(itemSchema).check((ctx) => {
+    const arr = ctx.value;
+    const counts = arr.reduce<Record<string, number>>((acc, item) => {
+      acc[item.index] = (acc[item.index] || 0) + 1;
+      return acc;
+    }, {});
+    const dups = Object.entries(counts)
+      .filter(([, c]) => c > 1)
+      .map(([idx]) => idx);
+
+    if (dups.length) {
+      ctx.issues.push({
+        code: "custom",
+        input: arr,
+        message: `Duplicate ${name} index detected: ${dups.join(", ")}`,
+        path: ["index"], // you could point at ["<field>"] if you want
+      });
+    }
+  });
+}
+
 export function createTransformer<T extends { index: string }>(
   list: T[],
   name: string,
