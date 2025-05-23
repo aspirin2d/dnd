@@ -1,0 +1,110 @@
+[
+  {
+    "index": "athletics",
+    "name": "Athletics",
+    "description": "Covers climbing, jumping, and swimming.",
+    "ability": "strength"
+  },
+  {
+    "index": "acrobatics",
+    "name": "Acrobatics",
+    "description": "Covers balance, flips, and avoiding being knocked down.",
+    "ability": "dexterity"
+  },
+  {
+    "index": "sleight-of-hand",
+    "name": "Sleight of Hand",
+    "description": "Covers legerdemain, palm tricks, and pocket-picking.",
+    "ability": "dexterity"
+  },
+  {
+    "index": "stealth",
+    "name": "Stealth",
+    "description": "Covers sneaking, hiding, and moving silently.",
+    "ability": "dexterity"
+  },
+  {
+    "index": "arcana",
+    "name": "Arcana",
+    "description": "Covers knowledge about spells, magic items, and magical traditions.",
+    "ability": "intelligence"
+  },
+  {
+    "index": "history",
+    "name": "History",
+    "description": "Covers historical events, famous people, and ancient lore.",
+    "ability": "intelligence"
+  },
+  {
+    "index": "investigation",
+    "name": "Investigation",
+    "description": "Covers finding hidden objects, solving puzzles, and deducing clues.",
+    "ability": "intelligence"
+  },
+  {
+    "index": "nature",
+    "name": "Nature",
+    "description": "Covers knowledge about terrain, animals, plants, and weather.",
+    "ability": "intelligence"
+  },
+  {
+    "index": "religion",
+    "name": "Religion",
+    "description": "Covers knowledge of deities, rites, prayers, and religious hierarchies.",
+    "ability": "intelligence"
+  },
+  {
+    "index": "animal-handling",
+    "name": "Animal Handling",
+    "description": "Covers calming, training, and understanding animals.",
+    "ability": "wisdom"
+  },
+  {
+    "index": "insight",
+    "name": "Insight",
+    "description": "Covers reading body language and detecting lies or motives.",
+    "ability": "wisdom"
+  },
+  {
+    "index": "medicine",
+    "name": "Medicine",
+    "description": "Covers diagnosing illnesses, stabilizing the dying, and treating wounds.",
+    "ability": "wisdom"
+  },
+  {
+    "index": "perception",
+    "name": "Perception",
+    "description": "Covers noticing clues, spotting hidden creatures, and general awareness.",
+    "ability": "wisdom"
+  },
+  {
+    "index": "survival",
+    "name": "Survival",
+    "description": "Covers tracking, navigating, and sustaining life in the wild.",
+    "ability": "wisdom"
+  },
+  {
+    "index": "deception",
+    "name": "Deception",
+    "description": "Covers lying, bluffing, and disguising motives or appearances.",
+    "ability": "charisma"
+  },
+  {
+    "index": "intimidation",
+    "name": "Intimidation",
+    "description": "Covers threats, coercion, and fear tactics.",
+    "ability": "charisma"
+  },
+  {
+    "index": "performance",
+    "name": "Performance",
+    "description": "Covers musical, theatrical, and other forms of artistic expression.",
+    "ability": "charisma"
+  },
+  {
+    "index": "persuasion",
+    "name": "Persuasion",
+    "description": "Covers convincing others with kindness, logic, or charm.",
+    "ability": "charisma"
+  }
+]

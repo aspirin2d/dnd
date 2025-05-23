@@ -1,0 +1,145 @@
+[
+  {
+    "index": "bard",
+    "name": "Bard",
+    "description": "An inspiring magician whose power echoes the music of creation.",
+    "hitPoints": {
+      "initial": 8,
+      "perLevel": 5
+    },
+    "proficiencies": {
+      "skills": {
+        "from": [
+          "acrobatics",
+          "deception",
+          "insight",
+          "intimidation",
+          "performance",
+          "persuasion"
+        ],
+        "count": 3
+      },
+      "weapons": [
+        "simple weapons",
+        "hand crossbows",
+        "longswords",
+        "rapiers",
+        "shortswords"
+      ],
+      "armour": ["light"],
+      "savingThrows": ["dexterity", "charisma"]
+    }
+  },
+  {
+    "index": "cleric",
+    "name": "Cleric",
+    "description": "A priestly champion who wields divine magic in service of a higher power.",
+    "hitPoints": {
+      "initial": 8,
+      "perLevel": 5
+    },
+    "proficiencies": {
+      "skills": {
+        "from": ["history", "insight", "medicine", "persuasion", "religion"],
+        "count": 2
+      },
+      "weapons": ["simple weapons"],
+      "armour": ["light", "medium", "shields"],
+      "savingThrows": ["wisdom", "charisma"]
+    }
+  },
+  {
+    "index": "fighter",
+    "name": "Fighter",
+    "description": "A master of martial combat, skilled with a variety of weapons and armor.",
+    "hitPoints": {
+      "initial": 10,
+      "perLevel": 6
+    },
+    "proficiencies": {
+      "skills": {
+        "from": [
+          "acrobatics",
+          "animal-handling",
+          "athletics",
+          "history",
+          "insight",
+          "intimidation",
+          "perception",
+          "survival"
+        ],
+        "count": 2
+      },
+      "weapons": ["simple weapons", "martial weapons"],
+      "armour": ["light", "medium", "heavy", "shields"],
+      "savingThrows": ["strength", "constitution"]
+    }
+  },
+  {
+    "index": "rogue",
+    "name": "Rogue",
+    "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies.",
+    "hitPoints": {
+      "initial": 8,
+      "perLevel": 5
+    },
+    "proficiencies": {
+      "skills": {
+        "from": [
+          "acrobatics",
+          "athletics",
+          "deception",
+          "insight",
+          "intimidation",
+          "investigation",
+          "perception",
+          "performance",
+          "persuasion",
+          "sleight-of-hand",
+          "stealth"
+        ],
+        "count": 4
+      },
+      "weapons": [
+        "simple weapons",
+        "hand crossbows",
+        "longswords",
+        "rapiers",
+        "shortswords"
+      ],
+      "armour": ["light"],
+      "savingThrows": ["dexterity", "intelligence"]
+    }
+  },
+  {
+    "index": "wizard",
+    "name": "Wizard",
+    "description": "A scholarly magic-user capable of manipulating the structures of reality.",
+    "hitPoints": {
+      "initial": 6,
+      "perLevel": 4
+    },
+    "proficiencies": {
+      "skills": {
+        "from": [
+          "arcana",
+          "history",
+          "insight",
+          "investigation",
+          "medicine",
+          "religion"
+        ],
+        "count": 2
+      },
+      "weapons": [
+        "daggers",
+        "darts",
+        "slings",
+        "quarterstaffs",
+        "light crossbows"
+      ],
+      "armour": [],
+      "savingThrows": ["intelligence", "wisdom"]
+    }
+  }
+]
