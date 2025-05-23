@@ -20,11 +20,11 @@
         "count": 3
       },
       "weapons": [
-        "simple weapons",
-        "hand crossbows",
-        "longswords",
-        "rapiers",
-        "shortswords"
+        "simple-weapons",
+        "hand-crossbow",
+        "longsword",
+        "rapier",
+        "shortsword"
       ],
       "armour": ["light"],
       "savingThrows": ["dexterity", "charisma"]
@@ -43,7 +43,7 @@
         "from": ["history", "insight", "medicine", "persuasion", "religion"],
         "count": 2
       },
-      "weapons": ["simple weapons"],
+      "weapons": ["simple-weapons"],
       "armour": ["light", "medium", "shields"],
       "savingThrows": ["wisdom", "charisma"]
     }
@@ -70,7 +70,7 @@
         ],
         "count": 2
       },
-      "weapons": ["simple weapons", "martial weapons"],
+      "weapons": ["simple-weapons", "martial-weapons"],
       "armour": ["light", "medium", "heavy", "shields"],
       "savingThrows": ["strength", "constitution"]
     }
@@ -101,11 +101,11 @@
         "count": 4
       },
       "weapons": [
-        "simple weapons",
-        "hand crossbows",
-        "longswords",
-        "rapiers",
-        "shortswords"
+        "simple-weapons",
+        "hand-crossbow",
+        "longsword",
+        "rapier",
+        "shortsword"
       ],
       "armour": ["light"],
       "savingThrows": ["dexterity", "intelligence"]
@@ -131,13 +131,7 @@
         ],
         "count": 2
       },
-      "weapons": [
-        "daggers",
-        "darts",
-        "slings",
-        "quarterstaffs",
-        "light crossbows"
-      ],
+      "weapons": ["dagger", "dart", "sling", "quarterstaff", "light-crossbow"],
       "armour": [],
       "savingThrows": ["intelligence", "wisdom"]
     }

@@ -1,0 +1,45 @@
+[
+  {
+    "index": "simple-weapons",
+    "name": "Simple Weapons",
+    "includes": [
+      "club",
+      "dagger",
+      "handaxe",
+      "javelin",
+      "light-hammer",
+      "mace",
+      "sickle",
+      "quarterstaff",
+      "spear",
+      "greatclub",
+      "light-crossbow",
+      "shortbow"
+    ]
+  },
+  {
+    "index": "martial-weapons",
+    "name": "Martial Weapons",
+    "includes": [
+      "flail",
+      "morningstar",
+      "rapier",
+      "scimitar",
+      "shortsword",
+      "war-pick",
+      "battleaxe",
+      "longsword",
+      "trident",
+      "warhammer",
+      "glaive",
+      "greataxe",
+      "greatsword",
+      "halberd",
+      "maul",
+      "pike",
+      "hand-crossbow",
+      "heavy-crossbow",
+      "longbow"
+    ]
+  }
+]

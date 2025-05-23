@@ -1,7 +1,7 @@
 import { z } from "zod/v4";
 import { ClassTransformer } from "./class";
 
-const CharacterSchema = z.object({
+const Character = z.object({
   id: z.string(),
   name: z.string(),
 

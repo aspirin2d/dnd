@@ -87,7 +87,7 @@ export const WeaponTypeSchema = DataItem.extend({
 
 export type WeaponType = z.infer<typeof WeaponTypeSchema>;
 
-// load the class data from the JSON file
+// load the weapon type data from the JSON file
 import { default as WeaponTypesData } from "../data/weapon-types.json";
 const WeaponTypeList: WeaponType[] = z
   .array(WeaponTypeSchema)
@@ -96,4 +96,22 @@ const WeaponTypeList: WeaponType[] = z
 export const WeaponTypeTransformer = createTransformer(
   WeaponTypeList,
   "Weapon type",
+);
+
+export const WeaponCategorySchema = z.object({
+  index: z.string(),
+  includes: z.array(WeaponTypeTransformer),
+});
+
+export type WeaponCategory = z.infer<typeof WeaponCategorySchema>;
+
+// load the weapon category data from the JSON file
+import { default as WeaponCategoriesData } from "../data/weapon-categories.json";
+const WeaponCategoryList: WeaponCategory[] = z
+  .array(WeaponCategorySchema)
+  .parse(WeaponCategoriesData);
+
+export const WeaponCategoryTransformer = createTransformer(
+  WeaponCategoryList,
+  "Weapon category",
 );
