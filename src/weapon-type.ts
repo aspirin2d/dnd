@@ -1,5 +1,5 @@
 import { z } from "zod/v4";
-import { DataItem } from "./util";
+import { createTransformer, DataItem } from "./util";
 import { DamageSchema } from "./damage";
 
 // 1. Enumerate all allowed weapon-properties (including "versatile" and "two-handed")
@@ -8,14 +8,10 @@ export const WeaponProperty = z.enum([
   "finesse",
   "thrown",
   "versatile",
-  "heavy",
   "two-handed",
 ]);
 
-export const WeaponRange = z.enum([
-  "ranged",
-  "melee"
-])
+export const WeaponRange = z.enum(["ranged", "melee"]);
 
 // 2. Define each damage‐variant as a strict object
 const VersatileDamageSchema = z
@@ -25,13 +21,9 @@ const VersatileDamageSchema = z
   })
   .strict();
 
-const OneHandedDamageSchema = z
-  .object({ oneHanded: DamageSchema })
-  .strict();
+const OneHandedDamageSchema = z.object({ oneHanded: DamageSchema }).strict();
 
-const TwoHandedDamageSchema = z
-  .object({ twoHanded: DamageSchema })
-  .strict();
+const TwoHandedDamageSchema = z.object({ twoHanded: DamageSchema }).strict();
 
 // 3. Union with the *specific* (versatile) branch first
 const DamageUnion = z.union([
@@ -93,38 +85,15 @@ export const WeaponTypeSchema = DataItem.extend({
   }
 });
 
-export const WeaponTypeIndex = z.enum([
-  "battleaxe",
-  "club",
-  "dagger",
-  "dart",
-  "flail",
-  "glaive",
-  "greataxe",
-  "greatclub",
-  "greatsword",
-  "halberd",
-  "hand-crossbow",
-  "handaxe",
-  "heavy-crossbow",
-  "javelin",
-  "light-crossbow",
-  "light-hammer",
-  "longbow",
-  "longsword",
-  "mace",
-  "maul",
-  "morningstar",
-  "pike",
-  "quarterstaff",
-  "rapier",
-  "scimitar",
-  "shortbow",
-  "shortsword",
-  "sickle",
-  "sling",
-  "spear",
-  "trident",
-  "war-pick",
-  "warhammer",
-]);
+export type WeaponType = z.infer<typeof WeaponTypeSchema>;
+
+// load the class data from the JSON file
+import { default as WeaponTypesData } from "../data/weapon-types.json";
+const WeaponTypeList: WeaponType[] = z
+  .array(WeaponTypeSchema)
+  .parse(WeaponTypesData);
+
+export const WeaponTypeTransformer = createTransformer(
+  WeaponTypeList,
+  "Weapon type",
+);

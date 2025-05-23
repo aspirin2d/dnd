@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
 
 import { default as SkillsData } from "../data/skills.json";
-import { SkillIndex, SkillTransformer, SkillSchema } from "./skill";
-import { AbilityIndex } from "./ability";
+import { SkillTransformer, SkillSchema } from "./skill";
+import { AbilityType } from "./ability";
 
 describe("Skills Data", () => {
   it("should parse all skills.json entries correctly", () => {
@@ -14,16 +14,9 @@ describe("Skills Data", () => {
     }
   });
 
-  it("should match each skill index to SkillIndex enum", () => {
-    const skillIndices = SkillsData.map((s) => s.index);
-    for (const index of skillIndices) {
-      expect(SkillIndex.options).toContain(index);
-    }
-  });
-
-  it("each skill's ability must be in AbilityIndex", () => {
+  it("each skill's ability must be in AbilityType", () => {
     for (const skill of SkillsData) {
-      expect(AbilityIndex.options).toContain(skill.ability);
+      expect(AbilityType.options).toContain(skill.ability);
     }
   });
 
@@ -40,13 +33,12 @@ describe("Skills Data", () => {
   });
 });
 
-
 // ✅ Mock-based unit tests
 const mockSkill = {
   index: "perception",
   name: "Perception",
   description: "Spot hidden details or enemies.",
-  ability: "wisdom"
+  ability: "wisdom",
 };
 
 describe("Mocked SkillSchema", () => {
@@ -64,5 +56,23 @@ describe("Mocked SkillSchema", () => {
 
     const result = SkillSchema.safeParse(badSkill);
     expect(result.success).toBe(false);
+  });
+});
+
+describe("SkillSchema additional tests", () => {
+  it("safeParse returns data.ability.index correctly", () => {
+    const res = SkillSchema.safeParse(mockSkill);
+    expect(res.success).toBe(true);
+    if (res.success) {
+      expect(res.data.ability.index).toBe("wisdom");
+      // full object round‐trip
+      expect(res.data.name).toBe(mockSkill.name);
+    }
+  });
+
+  it("SkillTransformer.parse returns the full Skill object", () => {
+    const skillObj = SkillTransformer.parse("perception");
+    expect(skillObj).toHaveProperty("description");
+    expect(skillObj.index).toBe("perception");
   });
 });

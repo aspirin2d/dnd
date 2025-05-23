@@ -9,4 +9,4 @@ const CharacterSchema = z.object({
   experiences: z.int().min(1),
 
   class: ClassTransformer,
-})
+});

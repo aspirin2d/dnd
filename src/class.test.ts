@@ -4,8 +4,7 @@ import { default as ClassesData } from "../data/classes.json";
 import { ClassTransformer, ClassSchema } from "./class";
 
 // schema under test (re-import ClassSchema if testing structure)
-import { AbilityIndex } from "./ability";
-import { SkillIndex } from "./skill";
+import { AbilityType } from "./ability";
 
 describe("Class Schema", () => {
   it("should parse all classes.json entries correctly", () => {
@@ -33,11 +32,11 @@ describe("Class Schema", () => {
     }).toThrow();
   });
 
-  it("each class should have 2 savingThrows from AbilityIndex", () => {
+  it("each class should have 2 savingThrows from AbilityType", () => {
     for (const cls of ClassesData) {
       const [a1, a2] = cls.proficiencies.savingThrows;
-      expect(AbilityIndex.options).toContain(a1);
-      expect(AbilityIndex.options).toContain(a2);
+      expect(AbilityType.options).toContain(a1);
+      expect(AbilityType.options).toContain(a2);
       expect(a1).not.toBe(a2);
     }
   });
@@ -46,13 +45,9 @@ describe("Class Schema", () => {
     for (const cls of ClassesData) {
       const skillSet = cls.proficiencies.skills;
       expect(skillSet.from.length).toBeGreaterThanOrEqual(skillSet.count);
-      for (const skill of skillSet.from) {
-        expect(SkillIndex.options).toContain(skill);
-      }
     }
   });
 });
-
 
 // Create a mocked class entry
 const mockClass = {
@@ -65,20 +60,13 @@ const mockClass = {
   },
   proficiencies: {
     skills: {
-      from: [
-        "arcana",
-        "history",
-        "investigation"
-      ],
+      from: ["arcana", "history", "investigation"],
       count: 2,
     },
     weapons: ["dagger", "quarterstaff"],
     armour: [],
-    savingThrows: [
-      "intelligence",
-      "wisdom"
-    ]
-  }
+    savingThrows: ["intelligence", "wisdom"],
+  },
 };
 
 describe("Mocked ClassSchema", () => {
@@ -106,5 +94,47 @@ describe("Mocked ClassSchema", () => {
 
     const result = ClassSchema.safeParse(badClass);
     expect(result.success).toBe(false);
+  });
+});
+
+describe("ClassSchema additional edge cases", () => {
+  const base = structuredClone(mockClass);
+
+  it("allows selecting exactly the minimum count of skills", () => {
+    const cls = structuredClone(base);
+    cls.proficiencies.skills.from = ["arcana", "history"];
+    cls.proficiencies.skills.count = 2;
+    expect(() => ClassSchema.parse(cls)).not.toThrow();
+  });
+
+  it("allows selecting exactly the maximum count of skills", () => {
+    const cls = structuredClone(base);
+    // max is 4 per z.int().max(4)
+    cls.proficiencies.skills.from = [
+      "arcana",
+      "history",
+      "stealth",
+      "investigation",
+    ];
+    cls.proficiencies.skills.count = 4;
+    expect(() => ClassSchema.parse(cls)).not.toThrow();
+  });
+
+  it("rejects when count is below the minimum", () => {
+    const cls = structuredClone(base);
+    cls.proficiencies.skills.count = 1;
+    expect(() => ClassSchema.parse(cls)).toThrowError(/Too small/);
+  });
+
+  it("rejects when count is above the maximum", () => {
+    const cls = structuredClone(base);
+    cls.proficiencies.skills.count = 5;
+    expect(() => ClassSchema.parse(cls)).toThrowError(/Too big/);
+  });
+
+  it("ClassTransformer throws a custom error message for unknown class", () => {
+    expect(() => ClassTransformer.parse("dragonborn" as any)).toThrowError(
+      /Class dragonborn not found/,
+    );
   });
 });

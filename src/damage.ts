@@ -1,4 +1,4 @@
-import z from "zod/v4";
+import { z } from "zod/v4";
 import { DiceNotation } from "./util";
 
 export const DamageType = z.enum([

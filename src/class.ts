@@ -2,7 +2,7 @@ import { z } from "zod/v4";
 
 import { AbilityTransformer } from "./ability";
 import { SkillTransformer } from "./skill";
-import { ChooseFrom, DataItem } from "./util";
+import { chooseFrom, createTransformer, DataItem } from "./util";
 
 export const ClassSchema = DataItem.extend({
   hitPoints: z.object({
@@ -12,13 +12,13 @@ export const ClassSchema = DataItem.extend({
 
   proficiencies: z.object({
     // bard can choose 3 skills, and rogue can choose 4
-    skills: ChooseFrom(SkillTransformer, z.int().min(2).max(4)),
+    skills: chooseFrom(SkillTransformer, z.int().min(2).max(4)),
     weapons: z.array(z.string()),
     armour: z.array(z.string()),
     // every class has 2 saving throw proficiencies
     savingThrows: z.tuple([AbilityTransformer, AbilityTransformer]),
   }),
-})
+});
 
 export type Class = z.infer<typeof ClassSchema>;
 
@@ -26,12 +26,19 @@ export type Class = z.infer<typeof ClassSchema>;
 import { default as ClassesData } from "../data/classes.json";
 const ClassList: Class[] = z.array(ClassSchema).parse(ClassesData);
 
-export const ClassIndex = z.enum(["bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard", "unkown"])
+export const ClassIndex = z.enum([
+  "bard",
+  "cleric",
+  "druid",
+  "fighter",
+  "monk",
+  "paladin",
+  "ranger",
+  "rogue",
+  "sorcerer",
+  "warlock",
+  "wizard",
+  "unknown",
+]);
 
-export const ClassTransformer = ClassIndex.transform((index) => {
-  const classInstance: Class | undefined = ClassList.find((c) => c.index === index);
-  if (!classInstance) {
-    throw new Error(`Class ${index} not found`);
-  }
-  return classInstance
-})
+export const ClassTransformer = createTransformer(ClassList, "Class");
