@@ -8,20 +8,44 @@ export const DataItem = z.object({
 
 export function chooseFrom<T extends ZodType>(
   itemSchema: T,
-  countSchema: ZodInt,
+  countSchema: ZodInt | number,
+  duplicate: number = 1, // max duplicates item user can choose
 ) {
-  return z
-    .object({
-      from: z.array(itemSchema),
-      count: countSchema,
-    })
-    .refine(
-      (val) => {
-        const { from, count } = val;
-        return from.length >= count;
-      },
-      { message: "Not enough items to choose from", path: ["from"] },
-    );
+  const countArg =
+    typeof countSchema === "number" ? z.literal(countSchema) : countSchema;
+  return (
+    z
+      .object({
+        from: z.array(itemSchema),
+        count: countArg,
+        duplicate: z.int().optional().default(duplicate),
+      })
+      .refine(
+        (val) => {
+          const { from, count } = val;
+          return from.length >= count;
+        },
+        { message: "Not enough items to choose from", path: ["from"] },
+      )
+      // ensure each element is only present once (using JSON.stringify keys)
+      .refine(
+        (val) => {
+          const seen = new Set<string>();
+          for (const item of val.from) {
+            const key = JSON.stringify(item);
+            if (seen.has(key)) {
+              return false;
+            }
+            seen.add(key);
+          }
+          return true;
+        },
+        {
+          message: "Each item in `from` must be unique",
+          path: ["from"],
+        },
+      )
+  );
 }
 
 export const DiceNotation = z

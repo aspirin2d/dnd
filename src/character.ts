@@ -1,5 +1,6 @@
 import { z } from "zod/v4";
 import { ClassTransformer } from "./class";
+import { SpecyTransformer } from "./specy";
 
 const Character = z.object({
   id: z.string(),
@@ -9,4 +10,5 @@ const Character = z.object({
   experiences: z.int().min(1),
 
   class: ClassTransformer,
+  specy: SpecyTransformer,
 });

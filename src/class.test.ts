@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import { default as ClassesData } from "../data/classes.json";
-import { ClassTransformer, ClassSchema } from "./class";
+import {
+  ClassSchema,
+  ClassTransformer,
+  weaponProficiencyTransformer,
+} from "./class";
 
 // schema under test (re-import ClassSchema if testing structure)
 import { AbilityType } from "./ability";
@@ -136,5 +140,29 @@ describe("ClassSchema additional edge cases", () => {
     expect(() => ClassTransformer.parse("dragonborn" as any)).toThrowError(
       /Class dragonborn not found/,
     );
+  });
+});
+
+// New tests for weaponProficiencyTransformer
+describe("weaponProficiencyTransformer", () => {
+  it("parses simple-weapons into a WeaponCategory", () => {
+    const result = weaponProficiencyTransformer.parse("simple-weapons");
+    expect(result.index).toBe("simple-weapons");
+  });
+
+  it("parses martial-weapons into a WeaponCategory", () => {
+    const result = weaponProficiencyTransformer.parse("martial-weapons");
+    expect(result.index).toBe("martial-weapons");
+  });
+
+  it("parses a valid WeaponType", () => {
+    const result = weaponProficiencyTransformer.parse("longsword");
+    expect(result.index).toBe("longsword");
+  });
+
+  it("throws an error for an unknown proficiency index", () => {
+    expect(() =>
+      weaponProficiencyTransformer.parse("unknown-weapon" as any),
+    ).toThrow();
   });
 });

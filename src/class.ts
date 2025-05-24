@@ -16,8 +16,9 @@ import {
 
 // load the class data from the JSON file
 import { default as ClassesData } from "../data/classes.json";
+import { ArmourCategory } from "./armour";
 
-const weaponProficiencyTransformer = z.string().transform((index) => {
+export const weaponProficiencyTransformer = z.string().transform((index) => {
   if (index === "simple-weapons" || index === "martial-weapons") {
     return WeaponCategoryTransformer.parse(index);
   }
@@ -35,7 +36,7 @@ export const ClassSchema = DataItem.extend({
     // bard can choose 3 skills, and rogue can choose 4
     skills: chooseFrom(SkillTransformer, z.int().min(2).max(4)),
     weapons: z.array(weaponProficiencyTransformer),
-    armour: z.array(z.string()),
+    armour: z.array(ArmourCategory),
     // every class has 2 saving throw proficiencies
     savingThrows: z.tuple([AbilityTransformer, AbilityTransformer]),
   }),

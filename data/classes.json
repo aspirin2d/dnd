@@ -44,7 +44,7 @@
         "count": 2
       },
       "weapons": ["simple-weapons"],
-      "armour": ["light", "medium", "shields"],
+      "armour": ["light", "medium", "shield"],
       "savingThrows": ["wisdom", "charisma"]
     }
   },
@@ -71,7 +71,7 @@
         "count": 2
       },
       "weapons": ["simple-weapons", "martial-weapons"],
-      "armour": ["light", "medium", "heavy", "shields"],
+      "armour": ["light", "medium", "heavy", "shield"],
       "savingThrows": ["strength", "constitution"]
     }
   },
