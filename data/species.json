@@ -1,0 +1,97 @@
+[
+  {
+    "index": "aasimar",
+    "name": "Aasimar",
+    "description": "Beings with celestial heritage, guided by a divine spark.",
+    "creatureType": "humanoid",
+    "baseSpeed": 30,
+    "size": "medium",
+    "traits": [
+      "Darkvision",
+      "Celestial Resistance",
+      "Healing Hands",
+      "Light Bearer"
+    ]
+  },
+  {
+    "index": "dragonborn",
+    "name": "Dragonborn",
+    "description": "Proud draconic warriors bearing the blood of dragons.",
+    "creatureType": "humanoid",
+    "baseSpeed": 30,
+    "size": "medium",
+    "traits": ["Draconic Ancestry", "Breath Weapon", "Damage Resistance"]
+  },
+  {
+    "index": "dwarf",
+    "name": "Dwarf",
+    "description": "Stout and enduring denizens of mountain and stone.",
+    "creatureType": "humanoid",
+    "baseSpeed": 25,
+    "size": "medium",
+    "traits": ["Darkvision", "Dwarven Resilience", "Stonecunning"]
+  },
+  {
+    "index": "elf",
+    "name": "Elf",
+    "description": "Graceful and long-lived folk of fey ancestry.",
+    "creatureType": "humanoid",
+    "baseSpeed": 30,
+    "size": "medium",
+    "traits": ["Darkvision", "Keen Senses", "Fey Ancestry", "Trance"]
+  },
+  {
+    "index": "gnome",
+    "name": "Gnome",
+    "description": "Small and clever, masters of illusion and invention.",
+    "creatureType": "humanoid",
+    "baseSpeed": 25,
+    "size": "small",
+    "traits": ["Darkvision", "Gnome Cunning"]
+  },
+  {
+    "index": "goliath",
+    "name": "Goliath",
+    "description": "Mountain giants thriving in high altitudes.",
+    "creatureType": "humanoid",
+    "baseSpeed": 30,
+    "size": "medium",
+    "traits": ["Powerful Build", "Mountain Born"]
+  },
+  {
+    "index": "halfling",
+    "name": "Halfling",
+    "description": "Cheerful and nimble folk with a streak of good fortune.",
+    "creatureType": "humanoid",
+    "baseSpeed": 25,
+    "size": "small",
+    "traits": ["Lucky", "Brave", "Halfling Nimbleness"]
+  },
+  {
+    "index": "human",
+    "name": "Human",
+    "description": "Versatile and ambitious, they adapt to any challenge.",
+    "creatureType": "humanoid",
+    "baseSpeed": 30,
+    "size": "medium",
+    "traits": ["Ability Score Increase"]
+  },
+  {
+    "index": "orc",
+    "name": "Orc",
+    "description": "Fierce warriors known for their strength and tenacity.",
+    "creatureType": "humanoid",
+    "baseSpeed": 30,
+    "size": "medium",
+    "traits": ["Menacing", "Relentless Endurance", "Savage Attacks"]
+  },
+  {
+    "index": "tiefling",
+    "name": "Tiefling",
+    "description": "Descendants of fiends, marked by infernal legacy.",
+    "creatureType": "humanoid",
+    "baseSpeed": 30,
+    "size": "medium",
+    "traits": ["Darkvision", "Hellish Resistance", "Infernal Legacy"]
+  }
+]
