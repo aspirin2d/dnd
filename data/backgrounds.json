@@ -1,0 +1,157 @@
+[
+  {
+    "index": "acolyte",
+    "name": "Acolyte",
+    "description": "You devoted yourself to service in a temple, either nestled in a town or secluded in a sacred grove. There you performed rites in honor of a god or pantheon.",
+    "abilities": { "from": ["charisma", "intelligence", "wisdom"], "count": 3 },
+    "proficiencies": { "skills": ["insight", "religion"] },
+    "features": ["magic-initiate-cleric"]
+  },
+  {
+    "index": "artisan",
+    "name": "Artisan",
+    "description": "The Artisan is a DnD 5e background that represents a character who has honed their skills in a craft, often from a young age.",
+    "abilities": {
+      "from": ["dexterity", "intelligence", "strength"],
+      "count": 3
+    },
+    "proficiencies": { "skills": ["investigation", "persuasion"] },
+    "features": ["crafter"]
+  },
+  {
+    "index": "charlatan",
+    "name": "Charlatan",
+    "description": "The Charlatan is a DnD 5e background for characters who thrive on deception and quick thinking. As a Charlatan, you’ve spent your days perfecting the art of the con—whether selling fake potions, forging noble lineages, or spinning comforting lies to gullible marks.",
+    "abilities": {
+      "from": ["charisma", "constitution", "dexterity"],
+      "count": 3
+    },
+    "proficiencies": { "skills": ["deception", "sleight of hand"] },
+    "features": ["skilled"]
+  },
+  {
+    "index": "criminal",
+    "name": "Criminal",
+    "description": "The Criminal is a DnD 5e background that represents a character who has lived on the wrong side of the law, relying on cunning, dexterity, and street smarts to survive.",
+    "abilities": {
+      "from": ["constitution", "dexterity", "intelligence"],
+      "count": 3
+    },
+    "proficiencies": { "skills": ["sleight of hand", "stealth"] },
+    "features": ["alert"]
+  },
+  {
+    "index": "entertainer",
+    "name": "Entertainer",
+    "description": "The Entertainer is a DnD 5e background for characters who captivate audiences with their performances—be it through dance, music, acrobatics, or storytelling. You’ve spent your life on stage, thriving on applause and honing your flair.",
+    "abilities": { "from": ["charisma", "dexterity", "strength"], "count": 3 },
+    "proficiencies": { "skills": ["acrobatics", "performance"] },
+    "features": ["musician"]
+  },
+  {
+    "index": "farmer",
+    "name": "Farmer",
+    "description": "You grew up close to the land. Years tending animals and cultivating the earth rewarded you with patience and good health. You have a keen appreciation for nature’s bounty alongside a healthy respect for nature’s wrath.",
+    "abilities": { "from": ["constitution", "strength", "wisdom"], "count": 3 },
+    "proficiencies": { "skills": ["animal handling", "nature"] },
+    "features": ["tough"]
+  },
+  {
+    "index": "guard",
+    "name": "Guard",
+    "description": "The Guard is a DnD 5e background that represents a character trained to protect and defend. Whether stationed at a city gate, patrolling a noble’s estate, or serving in a watchtower, this background prepares you for vigilance in the face of danger.",
+    "abilities": { "from": ["intelligence", "strength", "wisdom"], "count": 3 },
+    "proficiencies": { "skills": ["history", "persuasion"] },
+    "features": ["alert"]
+  },
+  {
+    "index": "guide",
+    "name": "Guide",
+    "description": "The Guide is a DnD 5e background for characters who have spent their lives exploring the wilderness. Whether you guided adventurers, foraged for food, or mapped unexplored regions, this background reflects your survival skills and connection to the natural world.",
+    "abilities": {
+      "from": ["constitution", "dexterity", "wisdom"],
+      "count": 3
+    },
+    "proficiencies": { "skills": ["arcana", "history"] },
+    "features": ["magic-initiate-druid"]
+  },
+  {
+    "index": "hermit",
+    "name": "Hermit",
+    "description": "The Hermit is a DnD 5e background that represents a character who has lived a life of seclusion, dedicating their time to quiet reflection, study, or communion with nature. Whether as a spiritual ascetic, a researcher, or a reclusive healer, the Hermit is well-suited for characters who value introspection and understanding over worldly pursuits.",
+    "abilities": { "from": ["charisma", "constitution", "wisdom"], "count": 3 },
+    "proficiencies": { "skills": ["medicine", "religion"] },
+    "features": ["healer"]
+  },
+  {
+    "index": "merchant",
+    "name": "Merchant",
+    "description": "The Merchant is a DnD 5e background that represents a character with a history in trade, logistics, and negotiation. Whether you worked as a shopkeeper, caravan master, or wandering trader, your experience in commerce and travel equips you with skills that extend beyond the marketplace.",
+    "abilities": {
+      "from": ["charisma", "constitution", "intelligence"],
+      "count": 3
+    },
+    "proficiencies": { "skills": ["animal handling", "persuasion"] },
+    "features": ["lucky"]
+  },
+  {
+    "index": "noble",
+    "name": "Noble",
+    "description": "The Noble is a DnD 5e background for a character who has been raised in wealth and privilege. This background works well for characters who want to emphasize social grace and intellectual prowess but also fits builds seeking to blend a commanding presence with practical skill.",
+    "abilities": {
+      "from": ["charisma", "intelligence", "strength"],
+      "count": 3
+    },
+    "proficiencies": { "skills": ["history", "persuasion"] },
+    "features": ["skilled"]
+  },
+  {
+    "index": "sage",
+    "name": "Sage",
+    "description": "The Sage is a DnD 5e background that represents a character who has devoted their life to the pursuit of knowledge. Whether through formal study or personal exploration, Sages are defined by their insatiable curiosity and understanding of the multiverse.",
+    "abilities": {
+      "from": ["constitution", "intelligence", "wisdom"],
+      "count": 3
+    },
+    "proficiencies": { "skills": ["arcana", "history"] },
+    "features": ["magic-initiate-wizard"]
+  },
+  {
+    "index": "sailor",
+    "name": "Sailor",
+    "description": "You lived as a seafarer, wind at your back and decks swaying beneath your feet. You’ve perched on barstools in more ports of call than you can remember, faced mighty storms, and swapped stories with folk who live beneath the waves.",
+    "abilities": { "from": ["dexterity", "strength", "wisdom"], "count": 3 },
+    "proficiencies": { "skills": ["acrobatics", "perception"] },
+    "features": ["tavern-brawler"]
+  },
+  {
+    "index": "scribe",
+    "name": "Scribe",
+    "description": "The Scribe is a DnD 5e background representing a character who has spent years mastering the craft of writing and preserving knowledge. Whether you worked in a monastery, government agency, or as a librarian, this background provides bookish characters the ability to thrive on their careful attention to detail.",
+    "abilities": {
+      "from": ["dexterity", "intelligence", "wisdom"],
+      "count": 3
+    },
+    "proficiencies": { "skills": ["investigation", "perception"] },
+    "features": ["skilled"]
+  },
+  {
+    "index": "soldier",
+    "name": "Soldier",
+    "description": "The Soldier is a DnD 5e background that represents a character trained for war from an early age. You’ve learned the discipline, strategy, and physical prowess needed to excel on the battlefield. Whether you fought to protect your homeland or served as a mercenary, this background emphasizes combat efficiency and readiness.",
+    "abilities": {
+      "from": ["constitution", "dexterity", "strength"],
+      "count": 3
+    },
+    "proficiencies": { "skills": ["athletics", "intimidation"] },
+    "features": ["savage-attacker"]
+  },
+  {
+    "index": "wayfarer",
+    "name": "Wayfarer",
+    "description": "The Wayfarer is a DnD 5e background designed for characters who have survived a life of hardship and uncertainty. Living by their wits and grit, Wayfarers are adept at staying unseen, reading people, and relying on their own luck to get by.",
+    "abilities": { "from": ["charisma", "dexterity", "wisdom"], "count": 3 },
+    "proficiencies": { "skills": ["insight", "stealth"] },
+    "features": ["lucky"]
+  }
+]

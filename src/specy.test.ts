@@ -29,10 +29,10 @@ describe("SpecySchema", () => {
     expect(() => SpecySchema.parse(bad)).toThrow();
   });
 
-  it("rejects missing traits", () => {
+  it("rejects missing features", () => {
     const bad = structuredClone(SpeciesData[0]);
     // @ts-ignore
-    delete bad.traits;
+    delete bad.features;
     expect(() => SpecySchema.parse(bad)).toThrow();
   });
 });
