@@ -17,4 +17,14 @@ export const AbilityType = z.enum([
   "charisma",
 ]);
 
+// @see: https://roll20.net/compendium/dnd5e/Rules:Step%203%20-%20Determine%20Ability%20Scores?expansion=32231
+export const AbilityScores = z.object({
+  strength: z.int().min(3).max(30),
+  dexterity: z.int().min(3).max(30),
+  constitution: z.int().min(3).max(30),
+  initelligence: z.int().min(3).max(30),
+  wisdom: z.int().min(3).max(30),
+  charaisma: z.int().min(3).max(30),
+});
+
 export const AbilityTransformer = createTransformer(AbilityList, "Ability");
