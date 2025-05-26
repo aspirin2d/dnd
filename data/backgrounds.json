@@ -26,7 +26,7 @@
       "from": ["charisma", "constitution", "dexterity"],
       "count": 3
     },
-    "proficiencies": { "skills": ["deception", "sleight of hand"] },
+    "proficiencies": { "skills": ["deception", "sleight-of-hand"] },
     "features": ["skilled"]
   },
   {
@@ -37,7 +37,7 @@
       "from": ["constitution", "dexterity", "intelligence"],
       "count": 3
     },
-    "proficiencies": { "skills": ["sleight of hand", "stealth"] },
+    "proficiencies": { "skills": ["sleight-of-hand", "stealth"] },
     "features": ["alert"]
   },
   {
@@ -53,7 +53,7 @@
     "name": "Farmer",
     "description": "You grew up close to the land. Years tending animals and cultivating the earth rewarded you with patience and good health. You have a keen appreciation for nature’s bounty alongside a healthy respect for nature’s wrath.",
     "abilities": { "from": ["constitution", "strength", "wisdom"], "count": 3 },
-    "proficiencies": { "skills": ["animal handling", "nature"] },
+    "proficiencies": { "skills": ["animal-handling", "nature"] },
     "features": ["tough"]
   },
   {
@@ -91,7 +91,7 @@
       "from": ["charisma", "constitution", "intelligence"],
       "count": 3
     },
-    "proficiencies": { "skills": ["animal handling", "persuasion"] },
+    "proficiencies": { "skills": ["animal-handling", "persuasion"] },
     "features": ["lucky"]
   },
   {

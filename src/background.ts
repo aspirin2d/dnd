@@ -13,17 +13,16 @@ import { SkillTransformer } from "./skill";
 export const BackgroundSchema = DataItem.extend({
   //  Increase one by 2 and another one by 1, or increase all three by 1. None of these increases can raise a score above 20.
   abilities: chooseFrom(AbilityTransformer, 3, 2),
-  proficiences: {
-    skills: [SkillTransformer, SkillTransformer],
-    // TODO: tools
-  },
+  proficiencies: z.object({
+    skills: z.tuple([SkillTransformer, SkillTransformer]),
+  }),
   features: z.array(z.string()), // FIXME: use FeatTransformer
-  // TODO equipment
+  // TODO choose start equipment package
 });
 
 export type Background = z.infer<typeof BackgroundSchema>;
 
-const BackgroundList: Background[] = uniqueIndexArray(
+export const BackgroundList: Background[] = uniqueIndexArray(
   BackgroundSchema,
   "Background",
 ).parse(BackgroundsData);
