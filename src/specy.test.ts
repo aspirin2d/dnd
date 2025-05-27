@@ -12,13 +12,13 @@ describe("SpecySchema", () => {
   it("rejects invalid creatureType", () => {
     const bad = structuredClone(SpeciesData[0]);
     // @ts-ignore
-    bad.creatureType = "beast";
+    bad.type = "bad";
     expect(() => SpecySchema.parse(bad)).toThrow();
   });
 
   it("rejects invalid baseSpeed values", () => {
     const low = structuredClone(SpeciesData[0]);
-    (low as any).baseSpeed = -1;
+    (low as any).speed = -1;
     expect(() => SpecySchema.parse(low)).toThrow();
   });
 

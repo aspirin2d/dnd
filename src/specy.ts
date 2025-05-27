@@ -4,12 +4,22 @@ import { createTransformer, DataItem, uniqueIndexArray } from "./util";
 import { default as SpeciesData } from "../data/species.json";
 
 export const CreatureSize = z.enum(["tiny", "small", "medium", "large"]);
+export const CreatureType = z.enum([
+  "humanoid",
+  "beast",
+  "undead",
+  "construct",
+  "dragon",
+  "fey",
+  "fiend",
+  "celestial",
+]); // TODO add more types
 
 export const SpecySchema = DataItem.extend({
-  creatureType: z.literal("humanoid"), // TODO maybe add more types
-  baseSpeed: z.int().min(0).max(30),
+  type: CreatureType, // TODO maybe add more types
+  speed: z.int().min(0).max(30),
   size: CreatureSize,
-  features: z.array(z.string()), // FIXME transform to Trait
+  features: z.array(z.string()), // FIXME transformer for race features
   // TODO body type
 });
 

@@ -19,10 +19,11 @@ export const Character = z.object({
   // character's starting class
   class: ClassTransformer,
 
+  // character's ability scores
   abilityScores: AbilityScores,
 
   // TODO character's appearance
-  // TODO identity: "male", "female", "non-binary", "other"
+  // TODO identity: "male", "female", "other"
   // TODO body type: choose from specy body types
 });
 
