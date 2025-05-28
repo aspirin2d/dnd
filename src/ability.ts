@@ -22,9 +22,9 @@ export const AbilityScores = z.object({
   strength: z.int().min(3).max(30),
   dexterity: z.int().min(3).max(30),
   constitution: z.int().min(3).max(30),
-  initelligence: z.int().min(3).max(30),
+  intelligence: z.int().min(3).max(30),
   wisdom: z.int().min(3).max(30),
-  charaisma: z.int().min(3).max(30),
+  charisma: z.int().min(3).max(30),
 });
 
 export const AbilityTransformer = createTransformer(AbilityList, "Ability");

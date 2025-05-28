@@ -37,6 +37,8 @@ export const WeaponTypeSchema = DataItem.extend({
   range: WeaponRange,
   properties: z.array(WeaponProperty),
   damage: DamageUnion,
+  // TODO weapon mastery
+  // @see https://roll20.net/compendium/dnd5e/Rules:Weapons?expansion=33335
 }).check((ctx) => {
   const { properties, damage } = ctx.value;
   const hasVersatile = properties.includes("versatile");
@@ -85,11 +87,11 @@ export const WeaponTypeSchema = DataItem.extend({
   }
 });
 
-export type WeaponType = z.infer<typeof WeaponTypeSchema>;
+export type Weapon = z.infer<typeof WeaponTypeSchema>;
 
 // load the weapon type data from the JSON file
 import { default as WeaponTypesData } from "../data/weapon-types.json";
-const WeaponTypeList: WeaponType[] = z
+const WeaponTypeList: Weapon[] = z
   .array(WeaponTypeSchema)
   .parse(WeaponTypesData);
 

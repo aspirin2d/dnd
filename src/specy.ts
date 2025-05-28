@@ -17,7 +17,7 @@ export const CreatureType = z.enum([
 
 export const SpecySchema = DataItem.extend({
   type: CreatureType, // TODO maybe add more types
-  speed: z.int().min(0).max(30),
+  speed: z.int().min(25).max(40),
   size: CreatureSize,
   features: z.array(z.string()), // FIXME transformer for race features
   // TODO body type
